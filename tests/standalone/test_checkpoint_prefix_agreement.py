@@ -28,7 +28,7 @@ def classes():
         serving_perf_enabled=lambda: False,
         logger=NS(debug=lambda *a, **kw: None),
     )
-    ln = ROOT.parent / "LMCache-NPU"
+    ln = ROOT.parent / "LMCache"
     names = {
         "_shared_envelope_identity",
         "_shared_envelope_mailbox",

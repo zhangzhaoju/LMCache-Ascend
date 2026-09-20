@@ -11,7 +11,7 @@ from weakref import WeakMethod
 import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
-LN = ROOT.parent / "LMCache-NPU"
+LN = ROOT.parent / "LMCache"
 
 
 def definitions(path, names, namespace):

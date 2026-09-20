@@ -41,7 +41,7 @@ def test_dense_loader_plans_full_and_partial_local_pages(
     engine.backend.hot_cache = engine.backend.pages
     base_key, layer_key = key_types
     cls = implementation(
-        "../LMCache-NPU/lmcache/v1/cache_engine.py",
+        "../LMCache/lmcache/v1/cache_engine.py",
         "LMCacheEngine",
         {"retrieve_layer", "_shared_page_first_location_plan"},
         object,

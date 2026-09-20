@@ -19,7 +19,7 @@ def scheduler_adapter(api):
     control, _ = api
     calls = []
     cls = implementation(
-        "../LMCache-NPU/lmcache/integration/vllm/vllm_v1_adapter.py",
+        "../LMCache/lmcache/integration/vllm/vllm_v1_adapter.py",
         "LMCacheConnectorV1Impl",
         {
             "accept_preemption_result",
@@ -225,7 +225,7 @@ def test_only_expected_pretransfer_miss_avoids_invalid_blocks_and_stack(api, kin
         exception=lambda *a: calls.append("exception"),
     )
     base = implementation(
-        "../LMCache-NPU/lmcache/integration/vllm/vllm_v1_adapter.py",
+        "../LMCache/lmcache/integration/vllm/vllm_v1_adapter.py",
         "LMCacheConnectorV1Impl",
         {"_fail_completed_cold_load", "_record_checkpoint_restore_miss"},
         object,
@@ -277,7 +277,7 @@ def test_only_expected_pretransfer_miss_avoids_invalid_blocks_and_stack(api, kin
 
 def test_all_tp_ranks_receive_the_same_typed_pretransfer_miss(api):
     control = api[0]
-    ln = ROOT.parent / "LMCache-NPU"
+    ln = ROOT.parent / "LMCache"
     nodes = []
     for file, names in [
         (ln / "lmcache/v1/shared_cpu_cache.py", {"SharedHandleEnvelope"}),

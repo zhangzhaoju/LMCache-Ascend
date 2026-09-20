@@ -47,7 +47,7 @@ def api(monkeypatch):
 
     control = load(
         "lmcache.integration.vllm.preemption_checkpoint",
-        ROOT.parent / "LMCache-NPU/lmcache/integration/vllm/preemption_checkpoint.py",
+        ROOT.parent / "LMCache/lmcache/integration/vllm/preemption_checkpoint.py",
     )
     load(
         "lmcache_ascend.v1.local_checkpoint",

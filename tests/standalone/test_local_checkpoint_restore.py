@@ -275,7 +275,7 @@ def test_checkpoint_control_acknowledgement_passes_real_shared_envelope_validati
 ):
     from dataclasses import dataclass
 
-    ln = ROOT.parent / "LMCache-NPU"
+    ln = ROOT.parent / "LMCache"
     nodes = []
     for file, names in [
         (ln / "lmcache/v1/shared_cpu_cache.py", {"SharedHandleEnvelope"}),
@@ -354,7 +354,7 @@ def test_checkpoint_control_acknowledgement_passes_real_shared_envelope_validati
 def test_index_tail_ownership_retires_only_at_the_completed_resume_branch(
     resumed, ready
 ):
-    file = ROOT.parent / "LMCache-NPU/lmcache/integration/vllm/vllm_v1_adapter.py"
+    file = ROOT.parent / "LMCache/lmcache/integration/vllm/vllm_v1_adapter.py"
     tree = ast.parse(file.read_text(encoding="utf-8"))
     branch = next(
         n
@@ -451,7 +451,7 @@ def test_normalization_protects_the_existing_compatible_canonical_page(
     resident = Page(2, 4, (2, 1))
     fill(resident, 4, 0)
     engine.backend.pages[canonical] = resident
-    source = ROOT.parent / "LMCache-NPU/lmcache/v1/storage_backend/local_cpu_backend.py"
+    source = ROOT.parent / "LMCache/lmcache/v1/storage_backend/local_cpu_backend.py"
     node = next(
         n
         for n in ast.walk(ast.parse(source.read_text(encoding="utf-8")))

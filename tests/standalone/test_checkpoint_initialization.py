@@ -25,7 +25,7 @@ class Config(NS):
 
 
 def init_api(config):
-    base_path = ROOT.parent / "LMCache-NPU/lmcache/integration/vllm/vllm_v1_adapter.py"
+    base_path = ROOT.parent / "LMCache/lmcache/integration/vllm/vllm_v1_adapter.py"
     ascend_path = ROOT / "lmcache_ascend/integration/vllm/vllm_v1_adapter.py"
     base_tree, ascend_tree = [
         ast.parse(p.read_text(encoding="utf-8")) for p in (base_path, ascend_path)
@@ -68,7 +68,7 @@ def init_api(config):
         KVConnectorRole=Role,
         logger=NS(info=lambda *a, **kw: None),
         validate_two_group_layer_counts=runpy.run_path(
-            str(ROOT.parent / "LMCache-NPU/lmcache/v1/kv_layer_groups.py")
+            str(ROOT.parent / "LMCache/lmcache/v1/kv_layer_groups.py")
         )["validate_two_group_layer_counts"],
     )
     prefix = ast.ImportFrom(

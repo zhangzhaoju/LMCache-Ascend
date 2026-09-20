@@ -25,7 +25,7 @@ api = checkpoint_api
 
 @pytest.fixture
 def key_types():
-    source = ROOT.parent / "LMCache-NPU/lmcache/utils.py"
+    source = ROOT.parent / "LMCache/lmcache/utils.py"
     tree = ast.parse(source.read_text(encoding="utf-8"))
     nodes = [
         node
@@ -177,7 +177,7 @@ def test_page_source_selection_and_failure_cleanup(
     cls = implementation(
         "lmcache_ascend/v1/cache_engine.py"
         if backend == "ascend"
-        else "../LMCache-NPU/lmcache/v1/cache_engine.py",
+        else "../LMCache/lmcache/v1/cache_engine.py",
         "AscendLMCacheEngine" if backend == "ascend" else "LMCacheEngine",
         {"_resolve_shared_rank0_layer_pages"},
         object,
